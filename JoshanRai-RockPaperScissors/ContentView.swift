@@ -18,6 +18,7 @@ struct ContentView: View {
     @State private var nRoundsPlayed = 0
     
     @State private var displayAlert = false
+    @State private var displayTutorialAlert = false
     @State private var gameOver = false
     
     @State private var alertTitle = ""
@@ -96,7 +97,7 @@ struct ContentView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: { displayAlert = true }) {
+                    Button(action: { displayTutorialAlert = true }) {
                         Image(systemName: "questionmark.circle")
                             .font(.title2)
                     }
@@ -104,7 +105,7 @@ struct ContentView: View {
                     .foregroundColor(Color.white)
                     .background(Color.black)
                     .clipShape(Circle())
-                    .alert("Tutorial", isPresented: $displayAlert) {
+                    .alert("Tutorial", isPresented: $displayTutorialAlert) {
                         Button("OK", role: .cancel) {}
                     } message: {
                         Text("""
